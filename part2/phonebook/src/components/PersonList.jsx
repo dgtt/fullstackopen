@@ -3,9 +3,7 @@ import PersonDB from '../services/PersonDB';
 import '../index.css'
 
 //Creamos componente para listar todos los nombres
-const PersonList = ({persons, setPersons})=>{
-  const [errorMessage, setErrorMessage] = useState(null)
-
+const PersonList = ({persons, setPersons, setErrorMessage})=>{
 
     //función para eliminar
     const handleDelete = async (id, name) => {
@@ -23,7 +21,7 @@ const PersonList = ({persons, setPersons})=>{
         } catch (error) {
           console.error('Error deleting person:', error);
           setErrorMessage(
-            `'Error deleting person:'${error} `
+            `'Error deleting person:'${error} has already been removed from server`
           )
           setTimeout(() => {
             setErrorMessage(null)

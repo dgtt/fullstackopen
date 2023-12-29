@@ -5,6 +5,7 @@ import PersonFormulary from './components/PersonFormulary';
 import axios from 'axios'
 import PersonDB from './services/PersonDB';
 import './index.css'
+import Notification from './components/Notification';
 
 const App = () => {
   const [ persons, setPersons ] = useState([]) 
@@ -120,7 +121,7 @@ const App = () => {
     <div>
       <h2>Phonebook</h2>
        {/* Display error message */}
-       {<div className="error">{errorMessage}</div>}
+       <Notification message={errorMessage}/>
       <div>
         filter show with <input value={filterName} onChange={handleFilterChange} />
       </div>
@@ -132,7 +133,7 @@ const App = () => {
         handlePhoneChange={handlePhoneChange}
       />
       <h2>Numbers</h2>
-      <FilteredPersonList persons={persons} filterName={filterName} setPersons={setPersons} />
+      <FilteredPersonList persons={persons} filterName={filterName} setPersons={setPersons} setErrorMessage={setErrorMessage} />
     </div>
   )
 }
