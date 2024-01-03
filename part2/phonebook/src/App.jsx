@@ -20,7 +20,7 @@ const App = () => {
   useEffect(() => {
     console.log('effect')
     axios
-      .get('http://localhost:3000/persons')
+      .get('/api/persons')
       .then(response => {
         console.log('promise fulfilled')
         setPersons(response.data)
