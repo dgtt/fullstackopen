@@ -98,6 +98,12 @@ const App = () => {
 
       } catch (error) {
         console.error('Error creating person:', error);
+        setErrorMessage(
+          `Error creating person: ${error.response.data.error} `
+        )
+        setTimeout(() => {
+          setErrorMessage(null)
+        }, 5000)                
       }   
     }
   }
